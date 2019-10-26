@@ -23,15 +23,13 @@ namespace Kursator.Services
 
         public async Task<IEnumerable<Fixing>> GetWorldwideFixings()
         {
-            return (await _nbpProvider.GetFixings()).Where(c => WorldwideCurrency.Contains(c.CurrencyCode.ToLower())).ToList(); 
+            return (await _nbpProvider.GetFixings()).Where(c => WorldwideCurrency.Contains(c.CurrencyCode.ToLower())).ToList();
         }
 
         public async Task<decimal> ConvertCurrencies(string firstCurrency, string secondCurrency, decimal value)
         {
             var cache = (await _nbpProvider.GetFixings()).ToDictionary(c => c.CurrencyCode);
-            ValueTuple<Fixing, Fixing> pair = ValueTuple.Create(cache[firstCurrency], cache[secondCurrency]);
-            decimal toPln = value * pair.Item1.Rate;
-            return toPln / pair.Item2.Rate;
+            return cache[firstCurrency].ConvertTo(cache[secondCurrency], value);
         }
     }
 }
