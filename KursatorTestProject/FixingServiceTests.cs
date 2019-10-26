@@ -1,9 +1,12 @@
 using FluentAssertions;
 using Kursator.Interfaces;
 using Kursator.Services;
+using Library.Exceptions;
 using Repositories.Interfaces;
 using Repositories.Repository;
+using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace KursatorTestProject
@@ -29,10 +32,28 @@ namespace KursatorTestProject
 
 
         [Fact]
-        public void AddTwoCurriencies()
+        public void ConvertCurrencies()
         {
             var result = _fixingService.ConvertCurrencies("EUR", "GBP", 100).Result;
             result.Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        public void ConvertCurrenciesMatchCase()
+        {
+            var result = _fixingService.ConvertCurrencies("eur", "Gbp", 100).Result;
+            result.Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        public async Task ConvertCurrenciesNotFound()
+        {
+            Func<Task> sutMethod = async () =>
+            {
+                await _fixingService.ConvertCurrencies("AAA", "GBP", 100);
+            };
+
+            await sutMethod.Should().ThrowExactlyAsync<FixingNotFoundException>();
         }
 
     }

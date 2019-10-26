@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Kursator.Interfaces;
+using Library.Exceptions;
 using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,24 @@ namespace Kursator.Services
 
         public async Task<decimal> ConvertCurrencies(string firstCurrency, string secondCurrency, decimal value)
         {
-            var cache = (await _nbpProvider.GetFixings()).ToDictionary(c => c.CurrencyCode);
-            return cache[firstCurrency].ConvertTo(cache[secondCurrency], value);
+            var cache = (await _nbpProvider.GetFixings()).ToDictionary(c => c.CurrencyCode.ToUpper());
+            return cache.Get(firstCurrency.ToUpper()).ConvertTo(cache.Get(secondCurrency.ToUpper()), value);
         }
     }
+
+    public static class FixingDictionaryExtensions
+    {
+        public static Fixing Get(this IDictionary<string, Fixing> source, string key)
+        {
+            try
+            {
+                return source[key];
+            }
+            catch (KeyNotFoundException)
+            {
+                throw new FixingNotFoundException(key);
+            }
+        }
+    }
+
 }
