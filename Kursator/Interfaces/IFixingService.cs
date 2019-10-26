@@ -7,5 +7,6 @@ namespace Kursator.Interfaces
     public interface IFixingService
     {
         Task<IEnumerable<Fixing>> GetWorldwideFixings();
+        Task<decimal> ConvertCurrencies(string firstCurrency, string secondCurrency, decimal value);
     }
 }

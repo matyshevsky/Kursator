@@ -2,18 +2,15 @@
 
 namespace Repositories.Entities
 {
-    public class NbpModel
+    public class ExchangeTableRate
     {
-        [JsonProperty("table")]
-        public string Table { get; set; }
-
         [JsonProperty("currency")]
         public string Currency { get; set; }
 
         [JsonProperty("code")]
         public string Code { get; set; }
 
-        [JsonProperty("rates")]
-        public Rate[] Rates { get; set; }
+        [JsonProperty("mid")]
+        public double Mid { get; set; }
     }
 }

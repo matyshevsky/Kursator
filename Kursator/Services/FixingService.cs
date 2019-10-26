@@ -13,7 +13,7 @@ namespace Kursator.Services
         private readonly INbpProvider _nbpProvider;
         private static readonly string[] WorldwideCurrency =
         {
-            "eur","chf","usd","pln","gbp"
+            "eur","chf","usd","huf","gbp"
         };
 
         public FixingService(INbpProvider nbpProvider)
@@ -23,9 +23,15 @@ namespace Kursator.Services
 
         public async Task<IEnumerable<Fixing>> GetWorldwideFixings()
         {
-            var result = await _nbpProvider.GetFixings(); 
-            var toReurn = result.Where(c => WorldwideCurrency.Contains(c.CurrencyCode.ToLower())).ToList();
-            return toReurn;
+            return (await _nbpProvider.GetFixings()).Where(c => WorldwideCurrency.Contains(c.CurrencyCode.ToLower())).ToList(); 
+        }
+
+        public async Task<decimal> ConvertCurrencies(string firstCurrency, string secondCurrency, decimal value)
+        {
+            var cache = (await _nbpProvider.GetFixings()).ToDictionary(c => c.CurrencyCode);
+            ValueTuple<Fixing, Fixing> pair = ValueTuple.Create(cache[firstCurrency], cache[secondCurrency]);
+            decimal toPln = value * pair.Item1.Rate;
+            return toPln / pair.Item2.Rate;
         }
     }
 }
