@@ -1,7 +1,7 @@
-﻿using Domain;
+﻿using Domain.FixingDomain;
+using Domain.FixingDomain.Interfaces;
 using Kursator.Interfaces;
-using Library.Exceptions;
-using Repositories.Interfaces;
+using Library.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,21 +31,6 @@ namespace Kursator.Services
         {
             var cache = (await _nbpProvider.GetFixings()).ToDictionary(c => c.CurrencyCode.ToUpper());
             return cache.Get(firstCurrency.ToUpper()).ConvertTo(cache.Get(secondCurrency.ToUpper()), value);
-        }
-    }
-
-    public static class FixingDictionaryExtensions
-    {
-        public static Fixing Get(this IDictionary<string, Fixing> source, string key)
-        {
-            try
-            {
-                return source[key];
-            }
-            catch (KeyNotFoundException)
-            {
-                throw new FixingNotFoundException(key);
-            }
         }
     }
 

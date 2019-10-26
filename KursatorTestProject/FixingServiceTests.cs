@@ -1,8 +1,8 @@
+using Domain.FixingDomain.Interfaces;
 using FluentAssertions;
 using Kursator.Interfaces;
 using Kursator.Services;
 using Library.Exceptions;
-using Repositories.Interfaces;
 using Repositories.Repository;
 using System;
 using System.Linq;

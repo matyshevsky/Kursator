@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Domain.FixingDomain;
 using FluentAssertions;
 using System;
 using Xunit;

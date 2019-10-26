@@ -1,5 +1,5 @@
-﻿using FluentAssertions;
-using Repositories.Interfaces;
+﻿using Domain.FixingDomain.Interfaces;
+using FluentAssertions;
 using Repositories.Repository;
 using System;
 using Xunit;

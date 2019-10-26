@@ -1,9 +1,7 @@
-﻿using Domain;
-using Repositories.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Repositories.Interfaces
+namespace Domain.FixingDomain.Interfaces
 {
     public interface INbpProvider
     {

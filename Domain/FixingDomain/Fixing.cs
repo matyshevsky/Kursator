@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace Domain.FixingDomain
 {
     public class Fixing
     {
