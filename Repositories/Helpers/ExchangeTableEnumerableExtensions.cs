@@ -10,6 +10,8 @@ namespace Repositories.Repository
     {
         public static IEnumerable<Fixing> ConvertToEnumerableDomain(this IEnumerable<ExchangeTable> source)
         {
+            if (source.Count() == 0)
+                return new List<Fixing>();
             return source.First().Rates.Select(c => new Fixing
             {
                 CurrencyCode = c.Code,
