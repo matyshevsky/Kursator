@@ -35,13 +35,9 @@ steps:
     projects: '**/*Test*/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-# - task: VSBuild@1
-#   inputs:
-#     solution: '$(solution)'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
 
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
+- task: Docker@2
+  displayName: DockerBuild
+  inputs:
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
