@@ -10,6 +10,7 @@
     <PackageReference Include="Autofac" Version="4.9.4" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.0.0" />
+    <PackageReference Include="NLog" Version="4.6.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
