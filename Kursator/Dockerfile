@@ -1,3 +1,4 @@
+#
 FROM mcr.microsoft.com/dotnet/core/runtime:2.1-stretch-slim AS base
 WORKDIR /app
 
