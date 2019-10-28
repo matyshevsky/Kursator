@@ -3,10 +3,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
-COPY ["Kursator/Kursator.csproj", "Kursator/"]
-COPY ["Library/Library.csproj", "Library/"]
-COPY ["Domain/Domain.csproj", "Domain/"]
-COPY ["Repositories/Repositories.csproj", "Repositories/"]
+COPY ["./Kursator/Kursator.csproj", "./Kursator/"]
+COPY ["./Library/Library.csproj", "./Library/"]
+COPY ["./Domain/Domain.csproj", "./Domain/"]
+COPY ["./Repositories/Repositories.csproj", "./Repositories/"]
 RUN dotnet restore "Kursator/Kursator.csproj"
 COPY . .
 WORKDIR "/src/Kursator"
