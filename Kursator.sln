@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kursator", "Kursator\Kursator.csproj", "{F5DEA4EF-47EC-4E82-ABF5-86815786CD82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kursator", "Kursator\Kursator.csproj", "{F5DEA4EF-47EC-4E82-ABF5-86815786CD82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A6577812-4732-4CEC-BA6F-2E4DBBF5AAD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A6577812-4732-4CEC-BA6F-2E4DBBF5AAD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursatorTestProject", "KursatorTestProject\KursatorTestProject.csproj", "{8EA2BC86-EB4B-4AE5-9A8B-7ECAD68CE2D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursatorTestProject", "KursatorTestProject\KursatorTestProject.csproj", "{8EA2BC86-EB4B-4AE5-9A8B-7ECAD68CE2D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{1D3E2DA8-7DEF-4EF1-8D38-5BD6AA4AB2D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.csproj", "{1D3E2DA8-7DEF-4EF1-8D38-5BD6AA4AB2D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{4F93DCB8-7280-4A9E-9D3A-6FDFB17ACAD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{4F93DCB8-7280-4A9E-9D3A-6FDFB17ACAD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
