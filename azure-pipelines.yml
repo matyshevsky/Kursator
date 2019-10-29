@@ -46,7 +46,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHub'
-    repository: 'kursator'
+    repository: 'lynio/kursator'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
