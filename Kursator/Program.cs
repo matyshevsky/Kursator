@@ -39,7 +39,7 @@ namespace Kursator
 
                 }
 
-                logger.Info("End application.");
+                logger.Info("End application..");
             }
             catch (Exception e)
             {
